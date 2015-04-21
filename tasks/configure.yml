@@ -32,7 +32,7 @@
 
 - name: PostgreSQL | Update configuration - pt. 2 (postgresql.conf)
   template:
-    src: postgresql.conf.j2
+    src: "postgresql.conf-{{ postgresql_version }}.j2"
     # if using pgtune, save the template to ".untuned"
     dest: "{{postgresql_conf_directory}}/postgresql.conf{% if postgresql_pgtune %}.untuned{% endif %}"
     owner: "{{ postgresql_service_user }}"
